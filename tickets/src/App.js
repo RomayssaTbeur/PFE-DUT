@@ -9,6 +9,7 @@ import Addmatchs from './Addmatchs';
 import Updatematchs from './Updatematchs';
 import Addtickets from './Addtickets';
 import Updatetickets from './Updatetickets';
+import Dashboard from './Dashboard';
 
 function App() {
   return (
@@ -17,12 +18,13 @@ function App() {
       <Header />
    <h1></h1>
    <Routes> 
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/Addmatchs" element={<Addmatchs />} />
-          <Route path="/Updatematchs" element={<Updatematchs />} />
-          <Route path="/Addtickets" element={<Addtickets />} />
-          <Route path="/Updatetickets" element={<Updatetickets />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/addmatchs" element={<Addmatchs />} />
+          <Route path="/updatematchs" element={<Updatematchs />} />
+          <Route path="/addtickets" element={<Addtickets />} />
+          <Route path="/updatetickets" element={<Updatetickets />} />
 
   </Routes>
       </BrowserRouter>
