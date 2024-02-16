@@ -29,6 +29,8 @@ Route::post('register',[UserController::class,'register']);
 Route::post('login',[UserController::class,'login']);
 Route::post('addticket',[TicketController::class,'addTicket']);
 Route::get('list',[TicketController::class,'list']);
+
+
 Route::post('stadium',[StadiumController::class,'stadium']);
 Route::post('equipe',[EquipeController::class,'equipe']);
 Route::post('matche',[MatcheController::class,'matche']);

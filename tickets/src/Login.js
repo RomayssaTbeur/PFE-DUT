@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { Await } from "react-router-dom";
-
+import { Redirect } from "react-router-dom";
 function Login()
 {
-    const[password,setPassword]=useState("")
-    const[email,setEmail]=useState("")
-     
+    
+    const[password,setPassword]=useState("");
+    const[email,setEmail]=useState("");
+    const [loggedIn, setLoggedIn] = useState(false);
     async function Login(){
         let item={email,password};
         let result= await fetch("http://localhost:8000/api/login",{
@@ -18,8 +19,27 @@ function Login()
             },
             body:JSON.stringify(item)
         })
-        result=await result.json();
-        localStorage.setItem("user-info",JSON.stringify(result));
+        console.log(item);
+        console.log(result);
+
+        if (result.ok) {
+            result = await result.json();
+            localStorage.setItem("user-info", JSON.stringify(result));
+      
+            // Mettre à jour l'état loggedIn
+            setLoggedIn(true);
+          } else {
+            // Gérer le cas où la connexion échoue
+            console.log("La connexion a échoué.");
+            // Afficher un message d'erreur ou effectuer d'autres actions nécessaires
+          }
+
+          if (loggedIn) {
+            /*return <Redirect to="/dashboard" />;*/
+            window.location.href = "/dashboard";
+          }
+      /*  result=await result.json();
+        localStorage.setItem("user-info",JSON.stringify(result));*/
     }
     
     return(

@@ -10,6 +10,7 @@ import Updatematchs from './Updatematchs';
 import Addtickets from './Addtickets';
 import Updatetickets from './Updatetickets';
 import Dashboard from './Dashboard';
+import Teams from './Teams';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <Route path="/updatematchs" element={<Updatematchs />} />
           <Route path="/addtickets" element={<Addtickets />} />
           <Route path="/updatetickets" element={<Updatetickets />} />
-
+          <Route path="/teams" element={<Teams />} />
   </Routes>
       </BrowserRouter>
     </div>

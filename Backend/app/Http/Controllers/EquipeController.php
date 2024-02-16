@@ -11,7 +11,7 @@ class EquipeController extends Controller
     function equipe(Request $req){
         $equipe = new Equipe;
         $equipe->name = $req->input('name');
-        $equipe->image = $req->file('file')->store('tickets');
+        $equipe->image = $req->file('image')->store('tickets');
         $equipe->save();
         
         return $equipe;

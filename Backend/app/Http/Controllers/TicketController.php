@@ -18,7 +18,7 @@ class TicketController extends Controller
         $ticket->description=$req->input('description');
         $ticket->price=$req->input('price');
         $ticket->type=$req->input('type');
-        $ticket->image=$req->file('file')->store('tickets');
+        $ticket->image=$req->file('image')->store('tickets');
         $ticket->save();
 
         return $ticket;

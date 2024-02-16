@@ -12,7 +12,7 @@ async function Signup()
     let item={name,password,email}
     console.warn(item)
 
-    let result = await fetch("http:/localhost:8000/api/signup",{
+    let result = await fetch("http://localhost:8000/api/register",{
         method:'POST',
         body:JSON.stringify(item),
         headers:{
@@ -21,7 +21,7 @@ async function Signup()
         }
     })
     result= await result.json();
-    console.warm("result",result);
+    console.warn("result",result);
     localStorage.setItem("user-info",JSON.stringify(result));
     /*history.push("/addmatchs");*/
 }
