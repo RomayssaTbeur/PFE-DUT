@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import ShowTeams from '../component/ShowTeams'
 function Teams() {
   const [name, setName] = useState("");
   const [file, setFile] = useState(null); // Modify the initial state of the file to null
@@ -34,16 +34,18 @@ function Teams() {
   }
 
   return (
-    <div>
-      <div className='col-sm-6 offset-sm-3'>
+    <>
+      <div className='col-sm-6 offset-sm-3' >
         <br />
         <input type="text" className="form-control" placeholder='name1' onChange={(e) => setName(e.target.value)} />
         <br />
         <input type="file" className="form-control" placeholder='file' onChange={handleFileChange} />
         <br />
-        <button className="btn btn-primary" onClick={ADD}>Manage Teams</button>
+        <button className="btn btn-primary" style={{marginBottom:'100 px'}} onClick={ADD}>Add Team</button>
       </div>
-    </div>
+      <ShowTeams />
+      
+    </>
   );
 }
 

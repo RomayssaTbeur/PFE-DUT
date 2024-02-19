@@ -11,7 +11,7 @@ class Matche extends Model
     public function Matche(){
     return $this->belongsTo(Equipe::class,'id');
     return $this->belongsTo(Stadium::class,'id_stad');
-    
-    
 }
+   protected $primaryKey = 'id_match';
 }
+

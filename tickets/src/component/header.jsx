@@ -3,8 +3,8 @@
 import { Nav, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-function header() {
-  
+function header(props) {
+  let Cmp=props.cmp;
 
   function Logout(){
     localStorage.clear();
@@ -26,9 +26,7 @@ function header() {
                 <div className="nav-item text-nowrap">
                   <Link to="/login" className="nav-link px-5">Login</Link>
                 </div>
-                <div className="nav-item text-nowrap">
-                  <Link to="/signup" className="nav-link px-5">Sign up</Link>
-                </div>
+                
               </>
             ) : (
               <>
@@ -90,14 +88,26 @@ function header() {
                     <Link to="/teams" >Manage Teams</Link>
                   </a>
                 </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <Link to="/admins" >Admins & Users</Link>
+                  </a>
+                </li>
               </ul>
 
 
             </div>
           </Nav>
 
-          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor">
+            <div class="chartjs-size-monitor-expand">
+              <div class=""></div></div><div class="chartjs-size-monitor-shrink">
+                <div class="">
+                  </div></div>
+                </div>
+             <Cmp/>
           </main>
         </div>
               </>

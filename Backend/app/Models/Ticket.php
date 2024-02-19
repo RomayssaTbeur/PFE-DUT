@@ -10,7 +10,8 @@ class Ticket extends Model
     use HasFactory;
     public function Matche(){
         return $this->belongsTo(Stadium::class,'id_stad');
-        
+        return $this->belongsTo(Matche::class,'id_match');
         
     }
+    protected $primaryKey = 'id_ticket';
 }

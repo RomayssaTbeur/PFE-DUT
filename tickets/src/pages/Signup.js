@@ -5,7 +5,7 @@ function Signup()
     const[name,setName]=useState("")
     const[password,setPassword]=useState("")
     const[email,setEmail]=useState("")
-   /* const history=useHistory();*/
+   
 
 async function Signup()
 {
@@ -23,7 +23,9 @@ async function Signup()
     result= await result.json();
     console.warn("result",result);
     localStorage.setItem("user-info",JSON.stringify(result));
-    /*history.push("/addmatchs");*/
+    setName("");
+    setPassword("");
+    setEmail("");
 }
     return(
         <div className="col-sm-6 offset-sm-3">

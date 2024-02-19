@@ -23,5 +23,9 @@ class UserController extends Controller
         }
         return $user;
     }
+
+    function list(){
+        return User::all();
+    }
     //
 }

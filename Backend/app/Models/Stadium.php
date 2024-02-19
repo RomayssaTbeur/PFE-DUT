@@ -10,4 +10,7 @@ class Stadium extends Model
     use HasFactory;
 
     protected $table = 'stadiums';
+
+    protected $primaryKey = 'id_stad';
 }
+
