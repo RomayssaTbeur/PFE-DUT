@@ -28,6 +28,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register',[UserController::class,'register']);
 Route::post('login',[UserController::class,'login']);
 Route::get('listAdmin',[UserController::class,'list']);
+Route::delete('deleteAdmin/{id}',[UserController::class,'deleteAdmin']);
+Route::get('admin/{id}', [UserController::class, 'getAdmin']); 
+Route::put('admin/{id}', [UserController::class, 'updateAdmin']); 
 
 Route::post('addticket',[TicketController::class,'addTicket']);
 Route::put('ticket/{id}', [TicketController::class, 'updateTicket']); 
@@ -35,13 +38,16 @@ Route::delete('ticket/{id}', [TicketController::class, 'deleteTicket']);
 Route::get('list',[TicketController::class,'list']);
 
 Route::post('stadium',[StadiumController::class,'stadium']);
+Route::get('listStadium',[StadiumController::class,'list']);
 Route::put('stadium/{id}', [StadiumController::class, 'updateStadium']); 
 Route::delete('stadium/{id}', [StadiumController::class, 'deleteStadium']); 
+Route::get('stadium/{id}', [StadiumController::class, 'getStadium']); 
 
 Route::post('equipe',[EquipeController::class,'equipe']);
 Route::put('equipe/{id}', [EquipeController::class, 'updateEquipe']); 
 Route::delete('equipe/{id}', [EquipeController::class, 'deleteEquipe']); 
 Route::get('listTeam',[EquipeController::class,'list']);
+Route::get('equipe/{id}', [EquipeController::class, 'getTeam']);
 
 Route::post('matche',[MatcheController::class,'matche']);
 Route::delete('matche/{id}', [MatcheController::class, 'deleteMatche']); 

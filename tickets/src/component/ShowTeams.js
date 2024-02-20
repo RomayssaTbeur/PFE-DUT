@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import Model from "react-modal";
-import UpdateTeams from '../component/UpdateTeams';
+import {Link} from "react-router-dom";
+
 
 function ShowTeams() {
   const[visible,setVisible]=useState(false);
@@ -25,6 +25,15 @@ function ShowTeams() {
 
 
   const deleteOperation = async (id) => {
+        let result = await fetch("http://localhost:8000/api/equipe/"+id,{
+              method:"DELETE"
+        });
+          result = await result.json();
+          if(result){
+             console.log("success");
+          }else{
+            console.log("failed");
+          }
     fetchData();
   };
 
@@ -50,6 +59,7 @@ function ShowTeams() {
       <table class="table table-dark table-hover">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Image</th>
       <th>Operations</th>
@@ -58,19 +68,13 @@ function ShowTeams() {
   <tbody>
     {teams.map((item) => (
       <tr key={item.id}>
+        <td>{item.id}</td>
         <td>{item.name}</td>
         <td><img style={{width:60}} src={'http://localhost:8000/'+item.image} alt={item.name}  /></td>
         <td><span >
                     <button onClick={()=>deleteOperation(item.id)} className="btn btn-danger delete">delete</button> 
                     
-                    {/*<button onClick={()=>updateOperation(item.id)} className="btn btn-warning">update</button> */}
-                    <button onClick={()=>setVisible(true) } className="btn btn-success">update</button>
-
-                    <Model style={{overlay:{backgroundColor:""},content:{width:"70 px",height:"70 px"}}} isOpen={visible} onRequestClose={()=>setVisible(false) }  >
-                      <button onClick={()=>setVisible(false) } className="btn btn-danger">Close</button>
-          
-                        <UpdateTeams id={item.id} />
-                    </Model>
+                    <Link to={'updateteam/'+item.id} className="btn btn-warning">update</Link> 
                     </span></td>
       </tr>
     ))}

@@ -7,6 +7,10 @@ use App\Models\Stadium;
 
 class StadiumController extends Controller
 {
+    function list(){
+        return Stadium::all();
+    }
+
     function stadium(Request $req){
         $stadium = new Stadium;
         $stadium->name = $req->input('name');
@@ -34,5 +38,9 @@ function deleteStadium($id)
     $stadium->delete();
 
     return response()->json(['message' => 'Stadium deleted successfully']);
+}
+
+function getStadium($id){
+    return Stadium::find($id);
 }
 }

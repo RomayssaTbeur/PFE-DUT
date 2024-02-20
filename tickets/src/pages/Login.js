@@ -1,12 +1,13 @@
 import { useState } from "react"
-import { Await } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 function Login()
 {
     
     const[password,setPassword]=useState("");
     const[email,setEmail]=useState("");
     const [loggedIn, setLoggedIn] = useState(false);
+    const navigate = useNavigate();
+
     async function Login(){
         let item={email,password};
         let result= await fetch("http://localhost:8000/api/login",{
@@ -36,7 +37,8 @@ function Login()
 
           if (loggedIn) {
             /*return <Redirect to="/dashboard" />;*/
-            window.location.href = "/dashboard";
+           /* window.location.href = "/dashboard";*/
+            navigate("/dashboard");
           }
       /*  result=await result.json();
         localStorage.setItem("user-info",JSON.stringify(result));*/

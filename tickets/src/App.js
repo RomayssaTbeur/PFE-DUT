@@ -13,6 +13,10 @@ import Dashboard from './pages/Dashboard';
 import Teams from './pages/Teams';
 import ShowTeams from './component/ShowTeams';
 import Admins from './pages/Admins';
+import Stadiums from './pages/Stadiums';
+import UpdateStadiums from './component/UpdateStadiums';
+import UpdateTeam from "./component/UpdateTeam";
+import UpdateAdmin from './component/UpdateAdmin';
 function App() {
   return (
     <div className="App">
@@ -27,8 +31,12 @@ function App() {
           <Route path="/addtickets" element={<Header cmp={Addtickets} />} />
           <Route path="/updatetickets" element={<Header cmp={Updatetickets} />} />
           <Route path="/teams" element={<Header cmp={Teams } />} />
-          
+          <Route path="/stadiums" element={<Header cmp={Stadiums} />} />
           <Route path="/admins" element={<Header cmp={Admins} />} />
+
+          <Route path="stadiums/updatestad/:id_stad" element={<Header cmp={UpdateStadiums} />} />
+          <Route path="teams/updateteam/:id" element={<Header cmp={UpdateTeam} />} />
+          <Route path="admins/updateadmin/:id" element={<Header cmp={UpdateAdmin} />} />
   </Routes>
       </BrowserRouter>
     </div>

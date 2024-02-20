@@ -41,4 +41,8 @@ class EquipeController extends Controller
     function list(){
         return Equipe::all();
     }
+
+    function getTeam($id){
+        return Equipe::find($id);
+    }
 }

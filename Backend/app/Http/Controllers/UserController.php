@@ -27,5 +27,27 @@ class UserController extends Controller
     function list(){
         return User::all();
     }
-    //
+
+    function deleteAdmin($id)
+{
+    $admin = User::findOrFail($id);
+    $admin->delete();
+
+    return response()->json(['message' => 'admin deleted successfully']);
+}
+
+function updateAdmin(Request $req, $id)
+{
+    $admin = User::findOrFail($id);
+    $admin->name = $req->input('name');
+    $admin->email = $req->input('email');
+    $admin->save();
+
+    return $admin;
+}
+
+function getAdmin($id){
+    return User::find($id);
+}
+    
 }
