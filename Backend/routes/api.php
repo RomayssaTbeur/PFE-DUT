@@ -35,7 +35,7 @@ Route::put('admin/{id}', [UserController::class, 'updateAdmin']);
 Route::post('addticket',[TicketController::class,'addTicket']);
 Route::put('ticket/{id}', [TicketController::class, 'updateTicket']); 
 Route::delete('ticket/{id}', [TicketController::class, 'deleteTicket']); 
-Route::get('list',[TicketController::class,'list']);
+Route::get('listticket',[TicketController::class,'list']);
 
 Route::post('stadium',[StadiumController::class,'stadium']);
 Route::get('listStadium',[StadiumController::class,'list']);

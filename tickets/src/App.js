@@ -17,16 +17,19 @@ import Stadiums from './pages/Stadiums';
 import UpdateStadiums from './component/UpdateStadiums';
 import UpdateTeam from "./component/UpdateTeam";
 import UpdateAdmin from './component/UpdateAdmin';
+import Addmatchs1 from './pages/Addmatchs1';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
       
    <Routes> 
-          <Route path="/dashboard" element={<Header cmp={Dashboard} />} />
+          <Route path="/" element={<Header cmp={Dashboard} />} />
           <Route path="/login" element={<><Header/> <Login/></>} /> 
           {/*<Route path="/signup" element={<Header cmp={Signup} />} />*/}
           <Route path="/addmatchs" element={<Header cmp={Addmatchs} />} />
+          <Route path="/addmatchs1" element={<Header cmp={Addmatchs1} />} />
+
           <Route path="/updatematchs" element={<Header cmp={Updatematchs} />} />
           <Route path="/addtickets" element={<Header cmp={Addtickets} />} />
           <Route path="/updatetickets" element={<Header cmp={Updatetickets} />} />

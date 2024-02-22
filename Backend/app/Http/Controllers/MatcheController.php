@@ -12,24 +12,60 @@ class MatcheController extends Controller
         $matche->equipe_locale = $req->input('equipe_locale');
         $matche->equipe_visiteur = $req->input('equipe_visiteur');
         $matche->stadium= $req->input('stadium');
-        $matche->date_match = $req->input('date_match ');
-
+        $matche->date_matche= $req->input('date_matche');
+        $matche->time_matche= $req->input('time_matche');
+        
         $matche->save();
         
         return $matche;
 }
+
+
+
+
 function updateMatche(Request $req, $id)
 {
         $matche = Matche::findOrFail($id);
-        $matche->equipe_locale = $req->input('equipe_locale');
-        $matche->equipe_visiteur = $req->input('equipe_visiteur');
-        $matche->stadium= $req->input('stadium');
-        $matche->date_match = $req->input('date_match ');
+        if ($req->has('equipe_locale')) {
+            $req->validate([
+                'equipe_locale' => 'required', 
+            ]);
+            $matche->equipe_locale = $req->input('equipe_locale');
+        }
+        if ($req->has('equipe_visiteur')) {
+            $req->validate([
+                'equipe_visiteur' => 'required', 
+            ]);
+            $matche->equipe_visiteur = $req->input('equipe_visiteur');
+        }
+
+        if ($req->has('stadium')) {
+            $req->validate([
+                'stadium' => 'required', 
+            ]);
+            $matche->stadium= $req->input('stadium');
+        }
+        
+        if ($req->has('date_matche')) {
+            $req->validate([
+                'date_matche' => 'required', 
+                'time_matche' => 'required', 
+            ]);
+            $matche->date_matche= $req->input('date_matche');
+        }
 
     $matche->save();
 
     return $matche;
 }
+
+
+
+function list(){
+    return matche::all();
+}
+
+
 
 function deleteMatche($id)
 {
@@ -40,3 +76,6 @@ function deleteMatche($id)
 }
 
 }
+
+
+

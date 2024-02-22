@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-function Addmatchs() {
+function Addmatchs1() {
     const [teams, setTeams] = useState([]);
     const [stadiums, setStadiums] = useState([]);
     const [stadiumId, setStadiumId] = useState("");
@@ -44,7 +44,9 @@ function Addmatchs() {
         
     }, []);
 
-
+    const dateObject = new Date(matchDate);
+    const timeArray = matchTime.split(':');
+    dateObject.setHours(timeArray[0], timeArray[1], 0, 0);
 
 
     async function ADD() {
@@ -55,11 +57,13 @@ function Addmatchs() {
         console.log("matchTime",matchTime);
         console.log("stadiumId", stadiumId);
 
+
         const formData = new FormData();
         formData.append('equipe_locale', IdTeam1);
         formData.append('equipe_visiteur', IdTeam2);
-        formData.append('date_matche', matchDate);
-        formData.append('time_matche', matchTime);
+        formData.append('date_matche', dateObject);
+        //formData.append('date_matche', matchDate, matchTime);
+       // formData.append('time_match', matchTime);
         formData.append('stadium', stadiumId);
 
         try {
@@ -83,9 +87,7 @@ function Addmatchs() {
 
     return (
         <>
-       
             <div className='col-sm-6 offset-sm-3'>
-              
                 <select className="form-control" onChange={(e) => setIdTeam1(e.target.value)}>
                     <option value="">Select Team 1</option>
                     {teams.map(team => (
@@ -120,4 +122,4 @@ function Addmatchs() {
         </>
     )
 }
-export default Addmatchs
+export default Addmatchs1

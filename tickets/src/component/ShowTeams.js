@@ -41,21 +41,11 @@ function ShowTeams() {
     
   };
 
+
   return (
     <>
     
       <div className="container">
-      {/*teams.map((team, index) => (
-        <div className="row" key={team.id}>
-          {index % 4 === 0 && index !== 0 && <div className="w-100"></div>}
-          <div className="col-md-3">
-            <img src={'/storage/${team.image}'} alt={team.name} className="img-thumbnail" />
-            <h2>{team.name}</h2>
-            <button className="btn btn-primary" onClick={() => handleUpdate(team.id)}>Update</button>
-            <button className="btn btn-danger" onClick={() => handleDelete(team.id)}>Delete</button>
-          </div>
-        </div>
-      ))*/}
       <table class="table table-dark table-hover">
   <thead>
     <tr>
@@ -80,8 +70,21 @@ function ShowTeams() {
     ))}
   </tbody>
 </table>
-    </div>
+</div>
+    {/** 
+      {teams.map((item) => (
+        <div className="row" key={item.id}>
+          
+          <div className="col-4">
+            <img src={'http://localhost:8000/'+item.image} alt={item.name} className="img-thumbnail" />
+            <h6>{item.name}</h6>
+            <button className="btn btn-primary" onClick={() => updateOperation (item.id)}>Update</button>
+            <button className="btn btn-danger" onClick={() => deleteOperation(item.id)}>Delete</button>
+          </div>
+        </div>
+      ))}
     
+    */}
   
 
     </>
