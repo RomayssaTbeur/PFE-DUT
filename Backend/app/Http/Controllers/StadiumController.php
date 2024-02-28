@@ -7,9 +7,8 @@ use App\Models\Stadium;
 
 class StadiumController extends Controller
 {
-    function list(){
-        return Stadium::all();
-    }
+
+ //*********************************************ADD STADIUM ********************************************** */
 
     function stadium(Request $req){
         $stadium = new Stadium;
@@ -20,15 +19,50 @@ class StadiumController extends Controller
         return $stadium;
 }
 
+ //*********************************************UPDATE STADIUM ********************************************** */
+
+
 function updateStadium(Request $req, $id)
 {
     $stadium = Stadium::findOrFail($id);
-    $stadium->name = $req->input('name');
-    $stadium->address = $req->input('address');
+    if ($req->has('name')) {
+        $req->validate([
+            'name' => 'required', 
+        ]);
+        $stadium->name = $req->input('name');
+    }
+    if ($req->has('address')) {
+        $req->validate([
+            'address' => 'required', 
+        ]);
+        $stadium->address = $req->input('address');
+    }
     $stadium->save();
 
     return $stadium;
 }
+
+
+ //*********************************************GET STADIUM ********************************************** */
+
+
+public function getStadium($id)
+{
+    $stadium = Stadium::findOrFail($id);
+
+    return response()->json($stadium);
+}
+
+
+ //*********************************************LIST STADIUM ********************************************** */
+
+
+function list(){
+    return stadium::all();
+}
+
+
+ //*********************************************DELETE STADIUM ********************************************** */
 
 
 
@@ -38,9 +72,5 @@ function deleteStadium($id)
     $stadium->delete();
 
     return response()->json(['message' => 'Stadium deleted successfully']);
-}
-
-function getStadium($id){
-    return Stadium::find($id);
 }
 }

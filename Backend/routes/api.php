@@ -34,8 +34,9 @@ Route::put('admin/{id}', [UserController::class, 'updateAdmin']);
 
 Route::post('addticket',[TicketController::class,'addTicket']);
 Route::put('ticket/{id}', [TicketController::class, 'updateTicket']); 
-Route::delete('ticket/{id}', [TicketController::class, 'deleteTicket']); 
+Route::delete('deleteticket/{id}', [TicketController::class, 'deleteTicket']); 
 Route::get('listticket',[TicketController::class,'list']);
+Route::get('getticket/{id}', [TicketController::class, 'getTicket']);
 
 Route::post('stadium',[StadiumController::class,'stadium']);
 Route::get('listStadium',[StadiumController::class,'list']);
@@ -50,5 +51,7 @@ Route::get('listTeam',[EquipeController::class,'list']);
 Route::get('equipe/{id}', [EquipeController::class, 'getTeam']);
 
 Route::post('matche',[MatcheController::class,'matche']);
-Route::delete('matche/{id}', [MatcheController::class, 'deleteMatche']); 
-Route::put('matche/{id}', [MatcheController::class, 'updateMatche']); 
+Route::delete('deletematche/{id}', [MatcheController::class, 'deleteMatche']); 
+Route::put('updatematche/{id}', [MatcheController::class, 'updateMatche']); 
+Route::get('listmatch',[MatcheController::class,'list']);
+Route::get('getmatch/{id}', [MatcheController::class, 'getMatch']);

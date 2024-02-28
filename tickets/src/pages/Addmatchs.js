@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import  ShowMatches  from "../component/ShowMatches"
+
 function Addmatchs() {
     const [teams, setTeams] = useState([]);
     const [stadiums, setStadiums] = useState([]);
@@ -56,17 +58,23 @@ function Addmatchs() {
         console.log("stadiumId", stadiumId);
 
         const formData = new FormData();
+
+
         formData.append('equipe_locale', IdTeam1);
         formData.append('equipe_visiteur', IdTeam2);
         formData.append('date_matche', matchDate);
         formData.append('time_matche', matchTime);
         formData.append('stadium', stadiumId);
 
+        console.log(formData.get('equipe_locale'));
+       
+
         try {
+
             const response = await fetch("http://localhost:8000/api/matche", {
                 method: 'POST',
                 headers:{
-                    'Content-Type': 'multipart/form-data',
+                    
                     "Accept":"application/json"
                    },
                 body: formData
@@ -80,6 +88,8 @@ function Addmatchs() {
             console.error('Error adding match:', error);
         }
     }
+
+    
 
     return (
         <>
@@ -117,6 +127,8 @@ function Addmatchs() {
 
                 <button className="btn btn-primary" onClick={ADD}>Add Match</button>
             </div>
+            
+           <ShowMatches />
         </>
     )
 }

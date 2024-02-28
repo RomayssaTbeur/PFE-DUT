@@ -7,6 +7,9 @@ use App\Models\Matche;
 
 class MatcheController extends Controller
 {
+
+        //*********************************************ADD MATCHE ********************************************** */
+
     function matche(Request $req){
         $matche = new Matche;
         $matche->equipe_locale = $req->input('equipe_locale');
@@ -14,13 +17,14 @@ class MatcheController extends Controller
         $matche->stadium= $req->input('stadium');
         $matche->date_matche= $req->input('date_matche');
         $matche->time_matche= $req->input('time_matche');
-        
+
         $matche->save();
         
         return $matche;
 }
 
 
+        //*********************************************UPDATE MATCHE ********************************************** */
 
 
 function updateMatche(Request $req, $id)
@@ -49,9 +53,15 @@ function updateMatche(Request $req, $id)
         if ($req->has('date_matche')) {
             $req->validate([
                 'date_matche' => 'required', 
-                'time_matche' => 'required', 
             ]);
             $matche->date_matche= $req->input('date_matche');
+        }
+
+        if ($req->has('time_matche')) {
+            $req->validate([
+                'time_matche' => 'required', 
+            ]);
+            $matche->date_matche= $req->input('time_matche');
         }
 
     $matche->save();
@@ -60,11 +70,24 @@ function updateMatche(Request $req, $id)
 }
 
 
+   //*********************************************GET MATCHE ********************************************** */
+
+
+public function getMatch($id)
+{
+    $matche = Matche::findOrFail($id);
+
+    return response()->json($matche);
+}
+
+  //*********************************************ADD MATCHE ********************************************** */
+
 
 function list(){
     return matche::all();
 }
 
+//*********************************************DELETE MATCHE ********************************************** */
 
 
 function deleteMatche($id)
@@ -76,6 +99,3 @@ function deleteMatche($id)
 }
 
 }
-
-
-
