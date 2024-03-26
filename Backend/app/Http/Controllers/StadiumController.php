@@ -14,6 +14,8 @@ class StadiumController extends Controller
         $stadium = new Stadium;
         $stadium->name = $req->input('name');
         $stadium->address = $req->input('address');
+        $stadium->capacite = $req->input('capacite');
+        $stadium->image = $req->file('image')->store('tickets');
         $stadium->save();
         
         return $stadium;

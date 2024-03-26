@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import {Link} from "react-router-dom";
-function ShowTickets() {
+function ShowTickets2() {
 
     const [tickets, setTickets] = useState([]);
 
@@ -39,11 +39,11 @@ function ShowTickets() {
                             <th scope="col">Id ticket</th>
                             <th scope="col">Match</th>
                             <th scope="col">Description</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Type</th>
+                            <th scope="col">Vip Price</th>
+                            <th scope="col">Normal Price</th>
                             <th scope="col">Stadium</th>
                             <th scope="col">date and time</th>
-
+                            <th scope="col">image</th>
                             <th scope="col">Operations</th>
                     </tr>
                 </thead>
@@ -53,10 +53,11 @@ function ShowTickets() {
                         <th scope="row">{item.id_ticket}</th>
                         <td>{item.matche.equipe_locale.name} vs {item.matche.equipe_visiteur.name}</td>
                         <td>{item.description}</td>
-                        <td>{item.price}</td>
-                        <td>{item.type}</td>
+                        <td>{item.priceVip}</td>
+                        <td>{item.priceNormal}</td>
                         <td>{item.matche.stadium.name}</td>
                         <td>{item.matche.date_matche} at {item.matche.time_matche}</td>
+                        <td><img style={{width:80}} src={'http://localhost:8000/'+item.image} alt={item.name}  /></td>
                         <td>
                             <span>
                              <button onClick={()=>deleteOperation(item.id_ticket)}  className="btn btn-danger delete">delete</button>
@@ -70,4 +71,4 @@ function ShowTickets() {
         </>
     )
 }
-export default ShowTickets
+export default ShowTickets2

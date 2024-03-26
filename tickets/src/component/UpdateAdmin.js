@@ -55,7 +55,7 @@ function UpdateAdmin(){
                 <br />
                 <input type="text" className="form-control" placeholder='address'  defaultValue={data.email} onChange={(e) => setEmail(e.target.value)} />
                 <br />
-                <button className="btn btn-primary" style={{ marginBottom: '100 px' }} onClick={onUpdateAdmin}>Update Stadium</button>
+                <button className="btn btn-primary" style={{ marginBottom: '100 px' }} onClick={onUpdateAdmin}>Update Admin</button>
             </div>
        
         </>

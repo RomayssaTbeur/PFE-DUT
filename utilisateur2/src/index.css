@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+@layer components {
+    .card2{
+        @apply 
+        m-3 bg-white text-gray-700 w-10 min-h-[10rem] 
+         shadow-lg rounded-md overflow-hidden  w-1/6
+    }
+    .badge2 {
+        @apply 
+        px-3 py-1  text-lg 
+    }
+    .text {
+        @apply 
+        text-white text-xl  rounded-full w-20
+    }
+    .circle {
+        @apply 
+        rounded-full w-20 h-20
+    }
+}
+
+.leaflet-container {
+    height: 400px;
+    width: 100%;
+  }

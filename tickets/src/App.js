@@ -7,7 +7,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Addmatchs from './pages/Addmatchs';
 import Updatematchs from './component/Updatematchs';
-import Addtickets from './pages/Addtickets';
+
 import Updatetickets from './component/Updatetickets';
 import Dashboard from './pages/Dashboard';
 import Teams from './pages/Teams';
@@ -17,6 +17,8 @@ import Stadiums from './pages/Stadiums';
 import UpdateStadiums from './component/UpdateStadiums';
 import UpdateTeam from "./component/UpdateTeam";
 import UpdateAdmin from './component/UpdateAdmin';
+import finalTable from './pages/FinalTable';
+import Addtickets2 from './pages/Addtickets2';
 
 function App() {
   return (
@@ -31,7 +33,7 @@ function App() {
           <Route path="/addmatchs" element={<Header cmp={Addmatchs} />} />
           <Route path="addmatchs/updatematchs/:id_match" element={<Header cmp={Updatematchs} />} />
 
-          <Route path="/addtickets" element={<Header cmp={Addtickets} />} />
+          
           <Route path="addtickets/updatetickets/:id_ticket" element={<Header cmp={Updatetickets} />} />
 
           <Route path="/teams" element={<Header cmp={Teams} />} />
@@ -42,6 +44,10 @@ function App() {
 
           <Route path="/admins" element={<Header cmp={Admins} />} />
           <Route path="admins/updateadmin/:id" element={<Header cmp={UpdateAdmin} />} />
+
+          <Route path="/finaltable" element={<Header cmp={finalTable} />} />
+
+          <Route path="/addtickets" element={<Header cmp={Addtickets2} />} />
         </Routes>
       </BrowserRouter>
     </div>

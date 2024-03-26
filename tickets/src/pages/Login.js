@@ -38,7 +38,7 @@ function Login()
           if (loggedIn) {
             /*return <Redirect to="/dashboard" />;*/
            /* window.location.href = "/dashboard";*/
-            navigate("/dashboard");
+            navigate("/");
           }
       /*  result=await result.json();
         localStorage.setItem("user-info",JSON.stringify(result));*/

@@ -33,7 +33,7 @@ return(
               options={data.options}
               series={data.series}
               type="bar"
-              width="500"
+              width="550"
             />
 
             <apexchart

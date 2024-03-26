@@ -19,4 +19,15 @@ class Equipe extends Model
     {
         return $this->hasMany(Matche::class, 'equipe_visiteur');
     }
+
+    public function localFinal()
+    {
+        return $this->hasMany(FinalTable::class, 'equipe_locale');
+    }
+
+    public function visitorFinal()
+    {
+        return $this->hasMany(FinalTable::class, 'equipe_visiteur');
+    }
+
 }

@@ -1,5 +1,6 @@
 <?php
-
+//
+use Fruitcake\Cors\Cors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -7,8 +8,8 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\StadiumController;
 use App\Http\Controllers\EquipeController;
 use App\Http\Controllers\MatcheController;
-
-
+use App\Http\Controllers\utilisateurController;
+use App\Http\Controllers\FinalTableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,11 @@ use App\Http\Controllers\MatcheController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//
+Route::middleware(['auth:api', Cors::class])->get('/utilisateur', function (Request $request) {
+    return $request->utilisateur();
+});
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -55,3 +61,7 @@ Route::delete('deletematche/{id}', [MatcheController::class, 'deleteMatche']);
 Route::put('updatematche/{id}', [MatcheController::class, 'updateMatche']); 
 Route::get('listmatch',[MatcheController::class,'list']);
 Route::get('getmatch/{id}', [MatcheController::class, 'getMatch']);
+
+Route::post('signup',[utilisateurController::class,'register']);
+
+Route::post('final',[FinalTableController::class,'Final']);

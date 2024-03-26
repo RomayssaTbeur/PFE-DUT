@@ -32,7 +32,7 @@ function PaymentPieChart() {
                         dataKey="value"
                         isAnimationActive={false}
                         data={data}
-                        cx="35%"
+                        cx="50%"
                         cy="30%"
                         outerRadius={80}
                         fill="#8884d8"

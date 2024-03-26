@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .card{
+        @apply 
+        m-3 bg-white text-gray-700 w-10 min-h-[10rem] 
+         shadow-lg rounded-md overflow-hidden  w-1/6
+    }
+    .badge {
+        @apply 
+        px-3 py-1  text-lg 
+    }
+    .text {
+        @apply 
+        text-white text-xl  rounded-full w-20
+    }
+    .circle {
+        @apply 
+        rounded-full w-20 h-20
+    }
+}
+
+.leaflet-container {
+    height: 400px;
+    width: 100%;
+  }

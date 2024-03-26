@@ -69,13 +69,13 @@ const renderActiveShape = (props) => {
     return (
         <>
            
-          <PieChart width={580} height={400}>
+          <PieChart width={880} height={300}>
          
           <Pie
             activeIndex={state.activeIndex}
             activeShape={renderActiveShape}
             data={data}
-            cx="50%"
+            cx="27%"
             cy="40%"
             innerRadius={60}
             outerRadius={80}

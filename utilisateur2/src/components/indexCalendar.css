@@ -1,0 +1,59 @@
+/* Centering the calendar */
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;  /* Ensures horizontal centering */
+}
+
+/* Calendar styling */
+.fc-view {
+  width: 1050px; /* Adjust width as needed */
+  height: 420px; /* Adjust height as needed */
+  border: 4px solid #ddd;
+  border-radius: 30px;
+  box-shadow: 0 0 45px rgba(0, 0, 0, 0.1);
+}
+
+/* Popover styling */
+.popoverStyle {
+  background-color: #9c9c9c;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  color: #0f5186;
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+.popoverStyle .popover-header {
+  background-color: #ebebeb;
+  border-bottom: 1px solid #ddd;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.popoverStyle .popover-body {
+  padding: 10px;
+}
+
+/* Adjust link color within popover */
+a {
+  color: #000000;
+}
+
+/* Rightward nudge (optional) */
+.fc-container {
+  margin: 0 0 0 10px; /* Margin: top, right, bottom, left */
+  position: relative;
+  left: 5px; /* Adjust for desired rightward movement */
+}
+.calendar-grid-container {
+  display: grid;
+  place-items: center;
+}
+
+.calendar-grid-item {
+  width: 80%;
+}

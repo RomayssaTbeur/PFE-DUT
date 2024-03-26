@@ -42,6 +42,8 @@ function ShowStadiums() {
                             <th>Id</th>
                             <th>Name</th>
                             <th>Address</th>
+                            <th>Capacite</th>
+                            <th>Image</th>
                             <th>Operations</th>
                         </tr>
                     </thead>
@@ -51,6 +53,8 @@ function ShowStadiums() {
                                 <td>{item.id_stad}</td>
                                 <td>{item.name}</td>
                                 <td>{item.address}</td>
+                                <td>{item.capacite}</td>
+                                <td><img style={{width:70,height:60}} src={'http://localhost:8000/'+item.image} alt={item.name}  /></td>
                                 <td><span >
                                     <button onClick={()=>deleteOperation(item.id_stad)}  className="btn btn-danger delete">delete</button>
                                     

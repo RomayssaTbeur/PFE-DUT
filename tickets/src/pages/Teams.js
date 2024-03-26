@@ -37,7 +37,7 @@ function Teams() {
     <>
       <div className='col-sm-6 offset-sm-3' >
         <br />
-        <input type="text" className="form-control" placeholder='name1' onChange={(e) => setName(e.target.value)} />
+        <input type="text" className="form-control" placeholder='name' onChange={(e) => setName(e.target.value)} />
         <br />
         <input type="file" className="form-control" placeholder='file' onChange={handleFileChange} />
         <br />

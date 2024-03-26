@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
-import  ShowTickets  from "../component/ShowTickets"
 
-function Addtickets()
+import ShowTickets2 from '../component/ShowTickets2';
+
+function Addtickets2()
 {
    /*id_ticket	matche	name	description	stadium_name	price	type	image*/
    const [matchs, setMatchs] = useState([]);
    const [selectedMatch, setselectedMatch] = useState('');
    const [description, setDescription] = useState('');
-   const [price, setPrice] = useState('');
-   const [selectedType, setselectedType] = useState('');
+   const [priceVip, setPriceVip] = useState('');
+   const [priceNormal, setPriceNormal] = useState('');
+   
    const [image, setImage] = useState(null);
    
    async function fetchMatchs() {
@@ -32,15 +34,15 @@ function Addtickets()
   async function ADD() {
     console.log('selectedMatch',selectedMatch);
     console.log('description',description);
-    console.log('price',price);
-    console.log('selectedType',selectedType);
+    console.log('priceVip', priceVip);
+    console.log('priceNormal', priceNormal);
 
        const formData = new FormData();
 
         formData.append('matche', selectedMatch);
         formData.append('description', description);
-        formData.append('price', price);
-        formData.append('type', selectedType);
+        formData.append('priceVip', priceVip);
+        formData.append('priceNormal', priceNormal);
         formData.append('image', image);
 
         try {
@@ -83,21 +85,17 @@ function Addtickets()
               <br/>
               <input type="text" className="form-control" placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
               <br />
-              <input type="text" className="form-control" placeholder='Price' onChange={(e) => setPrice(e.target.value)} />
+              <input type="text" className="form-control" placeholder='Price Vip' onChange={(e) => setPriceVip(e.target.value)} />
               <br />
-              <select className="form-control" onChange={(e) => setselectedType(e.target.value)}>
-                      <option value="">Select type</option>
-                      <option  value='Vip' id='Vip'>Vip</option>
-                      <option  value='Normal' id='Normal'>Normal</option>
-              </select>
+              <input type="text" className="form-control" placeholder='Price Normal' onChange={(e) => setPriceNormal(e.target.value)} />
               <br/>
               <input type="file" className="form-control" placeholder='Image ticket' onChange={handleFileChange} />
               <br />
               <button className="btn btn-primary" onClick={ADD}>Add ticket</button>
         </div>
              
-          <ShowTickets />
+          <ShowTickets2 />
         </>
     )
 }
-export default Addtickets
+export default Addtickets2

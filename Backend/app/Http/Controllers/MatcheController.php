@@ -61,7 +61,7 @@ function updateMatche(Request $req, $id)
             $req->validate([
                 'time_matche' => 'required', 
             ]);
-            $matche->date_matche= $req->input('time_matche');
+            $matche->time_matche= $req->input('time_matche');
         }
 
     $matche->save();
